@@ -229,6 +229,7 @@ public:
 	int iAnisotropyLevel;  // 0 - 5, powers of 2: 0 = 1x = no aniso
 	int iMultiSampleLevel;
 	int bHighQualityDepth;
+	bool bTrueColor;
 	bool bReplaceTextures;
 	bool bSaveNewTextures;
 	int iReplacementTextureLoadSpeed;
@@ -255,7 +256,9 @@ public:
 	int iCwCheatRefreshIntervalMs;
 	float fCwCheatScrollPosition;
 	float fGameListScrollPosition;
+	bool bDisableStencilTest;
 	int iBloomHack; //0 = off, 1 = safe, 2 = balanced, 3 = aggressive
+	bool bTimerHack;
 	int iSkipGPUReadbackMode;  // 0 = off, 1 = skip, 2 = to texture
 	int iSplineBezierQuality; // 0 = low , 1 = Intermediate , 2 = High
 	bool bHardwareTessellation;
