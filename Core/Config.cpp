@@ -713,6 +713,7 @@ static const ConfigSetting graphicsSettings[] = {
 	ConfigSetting("SustainedPerformanceMode", &g_Config.bSustainedPerformanceMode, false, CfgFlag::PER_GAME),
 	ConfigSetting("IgnoreScreenInsets", &g_Config.bIgnoreScreenInsets, true, CfgFlag::DEFAULT),
 
+	ConfigSetting("TrueColor", &g_Config.bTrueColor, true, CfgFlag::PER_GAME | CfgFlag::REPORT),
 	ConfigSetting("ReplaceTextures", &g_Config.bReplaceTextures, true, CfgFlag::PER_GAME | CfgFlag::REPORT),
 	ConfigSetting("SaveNewTextures", &g_Config.bSaveNewTextures, false, CfgFlag::PER_GAME | CfgFlag::REPORT),
 	ConfigSetting("IgnoreTextureFilenames", &g_Config.bIgnoreTextureFilenames, false, CfgFlag::PER_GAME),
@@ -723,9 +724,11 @@ static const ConfigSetting graphicsSettings[] = {
 	ConfigSetting("TexDeposterize", &g_Config.bTexDeposterize, false, CfgFlag::PER_GAME | CfgFlag::REPORT),
 	ConfigSetting("TexHardwareScaling", &g_Config.bTexHardwareScaling, false, CfgFlag::PER_GAME | CfgFlag::REPORT),
 	ConfigSetting("VSync", &g_Config.bVSync, &DefaultVSync, CfgFlag::PER_GAME),
-	ConfigSetting("BloomHack", &g_Config.iBloomHack, 0, CfgFlag::PER_GAME | CfgFlag::REPORT),
+	ConfigSetting("DisableStencilTest", &g_Config.bDisableStencilTest, false, CfgFLAG::PER_GAME | CfgFlag::REPORT),
+	ConfigSetting("BloomHack", &g_Config.iBloomHack, 0, CfgFlag::PER_GAME |	CfgFlag::REPORT),
 
 	// Not really a graphics setting...
+	ConfigSetting("TimerHack", &g_Config.bTimerHack, &DefaultTimerHack, true, CfgFlag::PER_GAME |	CfgFlag::REPORT),
 	ConfigSetting("SplineBezierQuality", &g_Config.iSplineBezierQuality, 2, CfgFlag::PER_GAME | CfgFlag::REPORT),
 	ConfigSetting("HardwareTessellation", &g_Config.bHardwareTessellation, false, CfgFlag::PER_GAME | CfgFlag::REPORT),
 	ConfigSetting("TextureShader", &g_Config.sTextureShaderName, "Off", CfgFlag::PER_GAME),
