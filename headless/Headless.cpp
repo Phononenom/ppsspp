@@ -515,6 +515,7 @@ int main(int argc, const char* argv[])
 	g_Config.bHardwareTransform = true;
 	g_Config.iAnisotropyLevel = 0;  // When testing mipmapping we really don't want this.
 	g_Config.iMultiSampleLevel = 0;
+	g_Config.bTrueColor = true;
 	g_Config.iLanguage = PSP_SYSTEMPARAM_LANGUAGE_ENGLISH;
 	g_Config.iTimeFormat = PSP_SYSTEMPARAM_TIME_FORMAT_24HR;
 	g_Config.bEncryptSave = true;
