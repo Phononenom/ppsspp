@@ -90,7 +90,22 @@ int GetClockFrequencyHz() {
 }
 
 u64 GetGlobalTimeUsScaled() {
-	return GetGlobalTimeUs();
+	s64 ticksSinceLast = GetTicks() - lastGlobalTimeTicks;
+	int freq = GetClockFrequencyHz();
+	if (g_Config.bTimerHack) {
+		float vps;
+		__DisplayGetVPS(&vps);
+		if (vps > 4.0f)
+			freq *= (vps / 59.94f);
+	}
+	s64 usSinceLast = ticksSinceLast * 1000000 / freq;
+	if (ticksSinceLast > UINT_MAX) {
+		// Adjust the calculated value to avoid overflow errors.
+		lastGlobalTimeUs += usSinceLast;
+		lastGlobalTimeTicks = GetTicks();
+		usSinceLast = 0;
+	}
+	return lastGlobalTimeUs + usSinceLast;
 }
 
 u64 GetGlobalTimeUs() {
