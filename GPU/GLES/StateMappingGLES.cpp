@@ -237,10 +237,11 @@ void DrawEngineGLES::ApplyDrawState(int prim) {
 
 	if (gstate_c.IsDirty(DIRTY_DEPTHSTENCIL_STATE)) {
 		ConvertStencilFuncState(stencilState_);
-
+		
+		bool enableStencilTest = !g_Config.bDisableStencilTest;
 		if (gstate.isModeClear()) {
 			renderManager->SetStencil(
-				gstate.isClearModeAlphaMask(), GL_ALWAYS, 0xFF, 0xFF,
+				gstate.isClearModeAlphaMask() && enableStencilTest, GL_ALWAYS, 0xFF, 0xFF,
 				stencilState_.writeMask, GL_REPLACE, GL_REPLACE, GL_REPLACE);
 			renderManager->SetDepth(true, gstate.isClearModeDepthMask() ? true : false, GL_ALWAYS);
 		} else {
