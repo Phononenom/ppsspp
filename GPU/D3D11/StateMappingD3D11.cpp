@@ -216,6 +216,8 @@ void DrawEngineD3D11::ApplyDrawState(int prim) {
 		}
 	}
 
+	bool enableStencilTest = !g_Config.bDisableStencilTest;
+	
 	if (gstate_c.IsDirty(DIRTY_RASTER_STATE)) {
 		keys_.raster.value = 0;
 		bool wantCull = !gstate.isModeClear() && prim != GE_PRIM_RECTANGLES && prim > GE_PRIM_LINE_STRIP && gstate.isCullEnabled();
