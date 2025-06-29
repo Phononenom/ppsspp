@@ -250,7 +250,7 @@ void DrawEngineD3D11::ApplyDrawState(int prim) {
 
 			// Stencil Test
 			bool alphaMask = gstate.isClearModeAlphaMask();
-			if (alphaMask) {
+			if (alphaMask && enableStencilTest) {
 				keys_.depthStencil.stencilTestEnable = true;
 				keys_.depthStencil.stencilCompareFunc = D3D11_COMPARISON_ALWAYS;
 				keys_.depthStencil.stencilPassOp = D3D11_STENCIL_OP_REPLACE;
