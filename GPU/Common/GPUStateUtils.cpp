@@ -1624,7 +1624,7 @@ static void ConvertStencilMask5551(GenericStencilFuncState &state) {
 void ConvertStencilFuncState(GenericStencilFuncState &state) {
 	// The PSP's mask is reversed (bits not to write.)  Ignore enabled, used for clears too.
 	state.writeMask = (~gstate.getStencilWriteMask()) & 0xFF;
-	state.enabled = gstate.isStencilTestEnabled();
+	state.enabled = gstate.isStencilTestEnabled() && !g_Config.bDisableStencilTest;
 	if (!state.enabled) {
 		if (gstate_c.framebufFormat == GE_FORMAT_5551)
 			ConvertStencilMask5551(state);
